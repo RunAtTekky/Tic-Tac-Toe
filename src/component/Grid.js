@@ -27,68 +27,20 @@ const Grid = () => {
   }
 
   const hasWon = useCallback(() => {
-    if (
-      marks[0] !== "minus" &&
-      marks[0] === marks[1] &&
-      marks[1] === marks[2]
-    ) {
-      //   console.log("Game Over");
+    for (let i=0; i<3; i++) {
+      if (marks[i] !== "minus" && marks[i] === marks[i+3] && marks[i] === marks[i+6]) {
+        setGameOver(true);
+      }
+    }
+    for (let i=0; i<=6; i++) {
+      if (marks[i] !== "minus" && marks[i] === marks[i+1] && marks[i] === marks[i+2]) {
+        setGameOver(true);
+      }
+    }
+    if (marks[0] !== "minus" && marks[0] === marks[4] && marks[4] === marks[8]) {
       setGameOver(true);
     }
-    if (
-      marks[3] !== "minus" &&
-      marks[3] === marks[4] &&
-      marks[4] === marks[5]
-    ) {
-      //   console.log("Game Over");
-      setGameOver(true);
-    }
-    if (
-      marks[6] !== "minus" &&
-      marks[6] === marks[7] &&
-      marks[7] === marks[8]
-    ) {
-      //   console.log("Game Over");
-      setGameOver(true);
-    }
-    if (
-      marks[0] !== "minus" &&
-      marks[0] === marks[3] &&
-      marks[3] === marks[6]
-    ) {
-      //   console.log("Game Over");
-      setGameOver(true);
-    }
-    if (
-      marks[1] !== "minus" &&
-      marks[1] === marks[4] &&
-      marks[4] === marks[7]
-    ) {
-      //   console.log("Game Over");
-      setGameOver(true);
-    }
-    if (
-      marks[2] !== "minus" &&
-      marks[2] === marks[5] &&
-      marks[5] === marks[8]
-    ) {
-      //   console.log("Game Over");
-      setGameOver(true);
-    }
-    if (
-      marks[0] !== "minus" &&
-      marks[0] === marks[4] &&
-      marks[4] === marks[8]
-    ) {
-      //   console.log("Game Over");
-      setGameOver(true);
-    }
-    if (
-      marks[2] !== "minus" &&
-      marks[2] === marks[4] &&
-      marks[4] === marks[6]
-    ) {
-      //   console.log("Game Over");
+    if (marks[2] !== "minus" && marks[2] === marks[4] && marks[4] === marks[6]) {
       setGameOver(true);
     }
   }, [marks]);
