@@ -6,6 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+The npm i (or npm install) is used to install all dependencies or devDependencies from a package. json file.
+### `npm i`
+
 ### `npm start`
 
 Runs the app in the development mode.\
