@@ -50,20 +50,12 @@ const Grid = () => {
   }, [handlePlay, hasWon]);
 
   if (gameOver) {
-    if (p1_turn)
-      return (
-        <div className="cont">
-          <h1 style={{color: `${col === "green" ? "red" : "green"}`}}>Player 2 with O Won </h1>
-          <button className="btn" onClick={handleRestart}>Restart</button>
-        </div>
-      );
-    else
-      return (
-        <div className="cont">
-          <h1 style={{color: `${col === "green" ? "red" : "green"}`}}>Player 1 with X won</h1>
-          <button className="btn" onClick={handleRestart}>Restart</button>
-        </div>
-      );
+    return (
+      <div className="cont">
+        <h1 style={{color: `${col === "green" ? "red" : "green"}`}}>{p1_turn === true ? "Player 2 with O Won" : "Player 1 with X won"} </h1>
+        <button className="btn" onClick={handleRestart}>Restart</button>
+      </div>
+    );
   }
   return (
     <div className="cont">
