@@ -8,9 +8,9 @@ function App() {
   const [redScore, setRedScore] = useState(0);
   return (
     <div className="App">
-      <Counter count={greenScore} color={"Green"} />
+      <Counter className="greenCounter" count={greenScore} color={"green"} />
       <Grid setGreenScore={setGreenScore} setRedScore={setRedScore} />
-      <Counter count={redScore} color={"Red"} />
+      <Counter className="redCounter" count={redScore} color={"red"} />
     </div>
   );
 }
