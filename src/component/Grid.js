@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-const Grid = () => {
+const Grid = ({ setGreenScore, setRedScore }) => {
   const [p1_turn, setP1_turn] = useState(true);
   const [marks, setMarks] = useState(Array(9).fill("minus"));
   const [gameOver, setGameOver] = useState(false);
@@ -26,6 +26,14 @@ const Grid = () => {
     setGameOver(false);
   };
 
+  function setScore() {
+    if (col === "green") {
+      setRedScore((c) => c + 1);
+    } else {
+      setGreenScore((c) => c + 1);
+    }
+  }
+
   const hasWon = useCallback(() => {
     for (let i = 0; i < 3; i++) {
       if (
@@ -34,6 +42,7 @@ const Grid = () => {
         marks[i] === marks[i + 6]
       ) {
         setGameOver(true);
+        setScore();
       }
     }
     for (let i = 0; i <= 6; i++) {
@@ -43,6 +52,7 @@ const Grid = () => {
         marks[i] === marks[i + 2]
       ) {
         setGameOver(true);
+        setScore();
       }
     }
     if (
@@ -51,6 +61,7 @@ const Grid = () => {
       marks[4] === marks[8]
     ) {
       setGameOver(true);
+      setScore();
     }
     if (
       marks[2] !== "minus" &&
@@ -58,6 +69,7 @@ const Grid = () => {
       marks[4] === marks[6]
     ) {
       setGameOver(true);
+      setScore();
     }
   }, [marks]);
 
